@@ -1,10 +1,22 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'instane5_jasemdb');
-define('DB_USER', 'instane5_jasemuser');
-define('DB_PASS', 'Mm09370126906');
-define('SITE_URL', 'instanew-app.ir');
+// config.php
+
+define('SITE_URL', 'instanew-app.ir'); // آدرس سایت خودت
 define('ADMIN_CARD', '6219861934798843');
-define('ADMIN_CARD_NAME', 'حوتی');
-define('UPLOAD_DIR', __DIR__ . '/uploads/receipts/');
-define('UPLOAD_URL', SITE_URL . '/uploads/receipts/');
+
+define('PANEL_URL', 'https://panil.jasemhooti2.ir/panel');
+define('PANEL_USERNAME', 'wizwiz');
+define('PANEL_PASSWORD', '725019516663486727');
+
+// تنظیمات دیتابیس (تغییر بده)
+$db_host = 'localhost';
+$db_name = 'instane5_jasemdb';
+$db_user = 'instane5_jasemuser2';
+$db_pass = 'Mm09370126906';
+
+try {
+    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("خطای اتصال به دیتابیس: " . $e->getMessage());
+}
